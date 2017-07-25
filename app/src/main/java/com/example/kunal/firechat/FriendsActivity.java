@@ -58,7 +58,7 @@ public class FriendsActivity extends AppCompatActivity {
               //  Toast.makeText(FriendsActivity.this, friendArrayList.get(i) + uIDs.get(i+1) + " tapped", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(FriendsActivity.this, ChatActivity.class);
                 intent.putExtra("chat_friend", friendArrayList.get(i));
-                intent.putExtra("chat_friend_uid", uIDs.get(i+1));
+                intent.putExtra("chat_friend_uid", uIDs.get(i));
                 startActivity(intent);
 
             }
@@ -77,16 +77,19 @@ public class FriendsActivity extends AppCompatActivity {
                 if(!userID.equals(key)) {
 
                     friendArrayList.add(names);
+                    uIDs.add(key);
 
                 }else {
 
                     textView.setText("Welcome " + names);
 
                 }
-                uIDs.add(key);
+
 
                 Log.d(TAG, "onChildAdded: Friends : " + friendArrayList);
                 Log.d(TAG, "onChildAdded: FriendUIDs : " + uIDs);
+                Log.d(TAG, "onChildAdded: FriendSize : " + friendArrayList.size());
+                Log.d(TAG, "onChildAdded: FriendUIDsSize : " + uIDs.size());
 
 //                for (int i = 0; i < uIDs.size(); ++i){
 //
